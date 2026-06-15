@@ -1,4 +1,4 @@
-import os  # Make sure this is at the very top of your bot.py file!
+import os  
 import discord
 from discord.ext import commands
 
@@ -9,7 +9,7 @@ intents.members = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 # ⚙️ CONFIGURATION 
-YOUR_DISCORD_USER_ID = 1297533282740600920  # 👈 Make sure your actual numerical ID is here
+YOUR_DISCORD_USER_ID = 1297533282740600920  
 CLAN_ID = "BH5HGJHV" 
 PRIVATE_SERVER_LINK = "https://www.roblox.com/share?code=e2bbdedd5de37e499f195764ae28d2ab&type=Server"
 
@@ -44,20 +44,19 @@ async def send_private_server(ctx, target_user: discord.Member = None):
         await ctx.reply(f"❌ An unexpected error occurred: `{e}`")
 
 # 🔍 KEYWORD AUTO-REPLIES
-# Make sure there are NO spaces at all in front of these lines:
 @bot.event
 async def on_message(message):
     if message.author.bot:
         return
+
     user_message = message.content.lower()
+
     if "clan id" in user_message:
         response = f"⚔️ **Clan ID:** `{CLAN_ID}`\n👉 Make sure you type it accurately in-game to apply!"
         await message.reply(response)
         return
+
     await bot.process_commands(message)
 
-# THIS LINE MUST BE FLUSH AGAINST THE LEFT WALL:
-bot.run("MTUxNjE1MDA4MDQ5ODA0NTA2OQ.Gpzwh9.RAs-Xo7vEHoe_qNKEBQVr5kVS8FGYqKwo3biFY")
-
-# Change the very last line of your file to this exact text:
-bot.run(os.environ.get("MTUxNjE1MDA4MDQ5ODA0NTA2OQ.Gpzwh9.RAs-Xo7vEHoe_qNKEBQVr5kVS8FGYqKwo3biFY"))
+# 🔒 SECURE LOGIN (Grabs the token from Render's dashboard)
+bot.run(os.environ.get("DISCORD_TOKEN"))
