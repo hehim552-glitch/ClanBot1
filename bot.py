@@ -27,7 +27,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 YOUR_DISCORD_USER_ID = 1297533282740600920  
 CLAN_ID = "BH5HGJHV" 
-PRIVATE_SERVER_LINK = "https://www.roblox.com/share?code=e2bbdedd5de37e499f195764ae28d2ab&type=Server"
+PRIVATE_SERVER_LINK = "https://www.roblox.com/share?code=e4202086da54df46b6705028b8c1b2fc&type=Server"
 
 @bot.event
 async def on_ready():
